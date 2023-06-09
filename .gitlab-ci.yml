@@ -1,0 +1,64 @@
+image: 
+    name: hashicorp/terraform:latest
+    entrypoint: [""]
+
+variables:
+  PLAN: $CI_PROJECT_NAME.tfplan
+  STATE: $CI_PROJECT_NAME.tfstate
+
+cache:
+  paths:
+    - .terraform
+
+before_script:
+  - terraform init
+
+stages:
+  - tfsec
+  - terra-validate
+  - terra-plan
+  - terra-apply
+  - terra-destroy
+
+terraform-validate:
+  stage: terra-validate
+  script: 
+    - terraform validate
+  tags:
+    - devsecops
+
+terraform-plan:
+  stage: terra-plan
+  script:
+    - terraform plan -state=$STATE -out=$PLAN
+  artifacts:
+    name: plan
+    paths:
+      - $PLAN
+      - $STATE
+  tags:
+    - devsecops
+
+terraform-apply:
+  stage: terra-apply
+  script: 
+    - terraform apply $PLAN -state=$STATE -auto-approve
+  dependencies:
+    - terraform-plan
+  artifacts:
+    name: plan
+    paths:
+      - $STATE
+  tags:
+    - devsecops
+  when: manual
+
+terraform-destroy:
+  stage: terra-destroy
+  script: 
+    - terraform destroy -state=$STATE --auto-approve
+  dependencies:
+    - terraform-apply
+  tags:
+    - devsecops
+  when: manual
