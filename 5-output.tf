@@ -3,9 +3,9 @@
 # }
 
 output "minikube-name" {
-    value = google_compute_instance.minikube.name
+  value = google_compute_instance.minikube.name
 }
 
 output "minikube-internal-ip" {
-    value = google_compute_instance.minikube.network_interface.0.network_ip
+  value = google_compute_instance.minikube.network_interface.0.network_ip
 }

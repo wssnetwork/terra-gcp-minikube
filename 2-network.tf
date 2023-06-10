@@ -1,30 +1,30 @@
 # create VPC
 resource "google_compute_network" "vpc" {
-    name                    = "${var.proj_name}-vpc"
-    auto_create_subnetworks = "false" 
-    routing_mode            = "GLOBAL"
+  name                    = "${var.proj_name}-vpc"
+  auto_create_subnetworks = "false"
+  routing_mode            = "GLOBAL"
 }
 
 # create private subnet
 resource "google_compute_subnetwork" "vpc-subnet" {
-    name            = "${var.proj_name}-vpc-subnet"
-    ip_cidr_range   = var.vpc_cidr
-    network         = google_compute_network.vpc.name
+  name          = "${var.proj_name}-vpc-subnet"
+  ip_cidr_range = var.vpc_cidr
+  network       = google_compute_network.vpc.name
 }
 
 # create cloud router
 module "cloud_router" {
-    source  = "terraform-google-modules/cloud-router/google"
-    version = "~> 5.0"
-    project = var.project
-    region  = var.region
-    name    = "${var.proj_name}-cloud-router"
-    network = google_compute_network.vpc.name
-    
+  source  = "terraform-google-modules/cloud-router/google"
+  version = "~> 5.0"
+  project = var.project
+  region  = var.region
+  name    = "${var.proj_name}-cloud-router"
+  network = google_compute_network.vpc.name
 
-    nats = [{
-        name = "${var.proj_name}-nat-gateway"
-    }]
+
+  nats = [{
+    name = "${var.proj_name}-nat-gateway"
+  }]
 }
 
 # # create a public ip for nat service

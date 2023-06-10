@@ -1,6 +1,11 @@
 # terra-gcp-minikube
 
-## Before Terraform
+
+## Define project id
+* Create environment variable GCPPROJID="your-gcp-proj-id"
+* Must run `terraform plan` to get it effective
+
+## Before Terraform (for local machine)
 * Need to auth via gcloud
 ```
 $ gcloud auth application-default login
