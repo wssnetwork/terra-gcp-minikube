@@ -11,4 +11,4 @@ spec:
     message: "All namespaces must have an `gatekeeper` label"
     labels: 
       - key: value
-        allowed: "gatekeeper"
+        allowedRegex: "gatekeeper"
