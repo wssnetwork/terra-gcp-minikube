@@ -37,3 +37,4 @@ spec:
       - radial/busyboxplus
       - docker.io/radial/busyboxplus
       - busybox
+      - bukubelajarwss/nginx:latest

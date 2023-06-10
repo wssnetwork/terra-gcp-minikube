@@ -35,8 +35,9 @@ $ terraform destroy
 ```
 
 ## GCP
-* To setup, in GCP connect via ssh-browser and upload the file from script/setup.sh
-* Run the bash script
+* Instance created with setup.sh
+* To ssh, go to compute > ssh > get the gcloud cmd
+* Connect with gcloud
 
 ## For tutorial
 * Ref: https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/ 

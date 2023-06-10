@@ -30,6 +30,7 @@ spec:
         image_matches(str, pattern) {
             contains(str, pattern)
         }
+
         violation[{"msg": msg}] {
           input.review.object
           image := input.review.object.spec.containers[_].image

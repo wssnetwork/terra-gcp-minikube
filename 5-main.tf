@@ -16,11 +16,11 @@ resource "google_compute_instance" "minikube" {
     subnetwork = google_compute_subnetwork.vpc-subnet.name
   }
 
-  service_account {
-    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    email  = google_service_account.svc-acc.email
-    scopes = ["cloud-platform"]
-  }
+  # service_account {
+  #   # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
+  #   email  = google_service_account.svc-acc.email
+  #   scopes = ["cloud-platform"]
+  # }
 
   metadata_startup_script = file("${path.module}/setup/setup.sh")
 
