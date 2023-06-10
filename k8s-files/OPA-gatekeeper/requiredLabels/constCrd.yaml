@@ -9,4 +9,6 @@ spec:
         kinds: ["Namespace"]
   parameters:
     message: "All namespaces must have an `gatekeeper` label"
-    labels: ["gatekeeper"]
+    labels: 
+      - key: value
+        allowed: "gatekeeper"

@@ -27,3 +27,7 @@ sudo usermod -aG docker ubuntu && newgrp docker
 # Init minikube
 sudo su ubuntu
 minikube start --driver=docker
+
+# Install OPA Gatekeeper
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user ubuntu
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml
