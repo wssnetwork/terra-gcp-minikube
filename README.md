@@ -2,8 +2,9 @@
 
 
 ## Define project id
-* Create environment variable GCPPROJID="your-gcp-proj-id"
+* Create environment variable TF_VAR_project="your-gcp-proj-id"
 * Must run `terraform plan` to get it effective
+* Need to reload vscode if it set while vscode is running
 
 ## Before Terraform (for local machine)
 * Need to auth via gcloud
@@ -38,4 +39,4 @@ $ terraform destroy
 * Run the bash script
 
 ## For tutorial
-Ref: https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/ 
+* Ref: https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/ 

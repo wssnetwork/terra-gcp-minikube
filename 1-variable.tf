@@ -1,15 +1,7 @@
-data "external" "env" {
-  # For Linux
-  # program = ["${path.module}/env/env.sh"]
-
-  # For Windows
-  program = ["${path.module}/env/env.ps1"]
-}
-
 variable "project" {
   type        = string
-  description = "gcp project code"
-  default     = data.external.env.result["gcp_proj_id"]
+  description = "gcp project id"
+  # default     = "<update-here-or-as-TF_VAR_project>"
 }
 
 variable "region" {
@@ -36,11 +28,11 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/26"
 }
 
-variable "ssh_user" {
-  type        = string
-  description = "ssh user"
-  default     = "wss"
-}
+# variable "ssh_user" {
+#   type        = string
+#   description = "ssh user"
+#   default     = "wss"
+# }
 
 # variable "ssh_pub_key" {
 #     type        = string
