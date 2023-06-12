@@ -39,5 +39,10 @@ $ terraform destroy
 * To ssh, go to compute > ssh > get the gcloud cmd
 * Connect with gcloud
 
+## Start minikube
+* In setup/install-tool.sh list the requirements to be install
+* Run as `ubuntu` user
+* Next, start the minikube `$ minikube start --driver=docker`
+
 ## For tutorial
 * Ref: https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/ 
