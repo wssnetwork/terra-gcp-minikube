@@ -41,8 +41,7 @@ $ terraform destroy
 
 ## Start minikube
 * In setup/install-tool.sh list the requirements to be install
-* Run as `ubuntu` user
-* Next, start the minikube `$ minikube start --driver=docker`
+* Run `$ curl https://raw.githubusercontent.com/wssnetwork/terra-gcp-minikube/master/setup/install-tool.sh | bash`
 
 ## For tutorial
 * Ref: https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/ 
