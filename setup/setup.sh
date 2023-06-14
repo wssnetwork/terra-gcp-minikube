@@ -22,3 +22,7 @@ sudo apt install -y docker-ce docker-compose
 
 # Assign docker to user
 sudo usermod -aG docker ubuntu && newgrp docker
+
+# Set kubectl from minikube
+sudo su ubuntu
+echo "alias kubectl="minikube kubectl --"" >> $HOME/.bashrc
